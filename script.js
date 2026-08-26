@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vinyl: "https://minviellesebastien-ctrl.github.io/Vinyl_Collection/",
         evenements: "https://minviellesebastien-ctrl.github.io/Agenda/",
         voyages: "https://minviellesebastien-ctrl.github.io/Mes_Voyages/",
-        autre: "https://minviellesebastien-ctrl.github.io/Avenir/"
+        avenir: "https://minviellesebastien-ctrl.github.io/Avenir/",
         voiture: "https://minviellesebastien-ctrl.github.io/Voiture/"
     };
 
