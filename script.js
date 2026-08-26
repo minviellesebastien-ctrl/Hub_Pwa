@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         evenements: "https://minviellesebastien-ctrl.github.io/Agenda/",
         voyages: "https://minviellesebastien-ctrl.github.io/Mes_Voyages/",
         autre: "https://minviellesebastien-ctrl.github.io/Avenir/"
+        voiture: "https://minviellesebastien-ctrl.github.io/Voiture/"
     };
 
     Object.keys(pwaRoutes).forEach((id) => {
