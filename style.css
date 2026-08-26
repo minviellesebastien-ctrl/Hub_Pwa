@@ -45,19 +45,36 @@ html, body{
     object-fit:contain;
 }
 
-/* Grille du Menu */
+/* Grille du Menu ajustée pour 5 cartes */
 #menu{
     position:absolute;
     inset:0;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:1fr 1fr;
-    gap:16px;
-    padding:16px;
-    opacity:0;
-    transform:scale(.92);
-    transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+    opacity: 0;
+    transform: scale(.92);
+    transition: opacity .3s ease, transform .3s cubic-bezier(.2,.8,.2,1);
 }
+
+/* Placement spécifique des 5 cartes dans la grille 3x3 */
+#vinyl { grid-column: 1; grid-row: 1; border-color: #E5A81A; }
+#vinyl svg { fill: #E5A81A; }
+
+#evenements { grid-column: 3; grid-row: 1; border-color: #186BE8; }
+#evenements svg { fill: #186BE8; }
+
+#avenir { grid-column: 2; grid-row: 2; border-color: #EB6925; }
+#avenir svg { fill: #EB6925; }
+
+#voyages { grid-column: 1; grid-row: 3; border-color: #009E96; }
+#voyages svg { fill: #009E96; }
+
+#voiture { grid-column: 3; grid-row: 3; border-color: #C0C8D0; }
+#voiture svg { fill: #C0C8D0; }
+
 
 /* Cartes matérialisées avec bordures épaisses */
 .pwa-card{
