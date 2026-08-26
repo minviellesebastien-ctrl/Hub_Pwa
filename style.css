@@ -116,8 +116,8 @@ html, body{
 }
 
 /* Couleurs identiques aux icônes d'origine */
-#vinyl { border-color: ##E5A81A; }
-#vinyl svg { fill: ##E5A81A; }
+#vinyl { border-color: #E5A81A; }
+#vinyl svg { fill: #E5A81A; }
 
 #evenements { border-color: #186BE8; }
 #evenements svg { fill: #186BE8; }
