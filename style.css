@@ -116,17 +116,17 @@ html, body{
 }
 
 /* Couleurs identiques aux icônes d'origine */
-#vinyl { border-color: #FFB800; }
-#vinyl svg { fill: #FFB800; }
+#vinyl { border-color: ##E5A81A; }
+#vinyl svg { fill: ##E5A81A; }
 
-#evenements { border-color: #0066FF; }
-#evenements svg { fill: #0066FF; }
+#evenements { border-color: #186BE8; }
+#evenements svg { fill: #186BE8; }
 
 #voyages { border-color: #176F5A; }
 #voyages svg { fill: #176F5A; }
 
-#autre { border-color: #FF6600; }
-#autre svg { fill: #FF6600; }
+#autre { border-color: #EB6925; }
+#autre svg { fill: #EB6925; }
 
 /* Transitions du menu après vidéo */
 body.menu-visible #intro{
