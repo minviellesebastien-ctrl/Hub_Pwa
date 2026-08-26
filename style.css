@@ -1,0 +1,188 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Poppins", sans-serif;
+    background:#0A0D0F;
+    color:#fff;
+}
+
+#app{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    z-index: 2;
+}
+
+/* Introduction vidéo */
+#intro{
+    position:absolute;
+    inset:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0A0D0F;
+    transition: opacity .5s ease, transform .6s ease;
+}
+
+#logo-container{
+    width:240px;
+    height:240px;
+}
+
+#intro-video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* Grille 3x3 : Les 4 coins encadrent la carte centrale sans superposition */
+#menu{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns: 1fr 130px 1fr;
+    grid-template-rows: 1fr 130px 1fr;
+    gap: 12px;
+    padding: 16px;
+    opacity: 0;
+    transform: scale(.92);
+    transition: opacity .3s ease, transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Style de base des cartes */
+.pwa-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+
+    overflow:hidden;
+    cursor:pointer;
+
+    transform:scale(.8);
+    opacity:0;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        opacity .5s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.pwa-card svg {
+    width: 52px;
+    height: 52px;
+}
+
+.pwa-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+/* --- PLACEMENT DANS LA GRILLE 3x3 (LES 4 COINS + LE CENTRE) --- */
+
+/* 1. Haut-Gauche (Vinyl) */
+#vinyl { 
+    grid-column: 1; 
+    grid-row: 1; 
+    border-color: #E5A81A; 
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 40px; 
+}
+#vinyl svg { fill: #E5A81A; }
+
+/* 2. Haut-Agenda (Evenements) */
+#evenements { 
+    grid-column: 3; 
+    grid-row: 1; 
+    border-color: #186BE8; 
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-left-radius: 40px; 
+    border-bottom-right-radius: 28px;
+}
+#evenements svg { fill: #186BE8; }
+
+/* 3. 5ème carte au CENTRE (Avenir) - Intégrée naturellement dans la grille */
+#avenir { 
+    grid-column: 2; 
+    grid-row: 2; 
+    border-color: #EB6925; 
+    border-radius: 28px;
+}
+#avenir svg { fill: #EB6925; }
+
+/* 4. Bas-Gauche (Voyages) */
+#voyages { 
+    grid-column: 1; 
+    grid-row: 3; 
+    border-color: #009E96; 
+    border-top-left-radius: 28px;
+    border-top-right-radius: 40px; 
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+}
+#voyages svg { fill: #009E96; }
+
+/* 5. Bas-Droite (Voiture) */
+#voiture { 
+    grid-column: 3; 
+    grid-row: 3; 
+    border-color: #C0C8D0; 
+    border-top-left-radius: 40px; 
+    border-top-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+}
+#voiture svg { fill: #C0C8D0; }
+
+
+/* Transitions du menu après vidéo */
+body.menu-visible #intro{
+    opacity:0;
+    transform:scale(1.08);
+    pointer-events:none;
+}
+
+body.menu-visible #menu{
+    opacity:1;
+    transform:scale(1);
+}
+
+body.menu-visible .pwa-card{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* Enchaînement des 5 cartes en cascade */
+body.menu-visible .pwa-card:nth-child(1){ transition-delay:.05s; }
+body.menu-visible .pwa-card:nth-child(2){ transition-delay:.10s; }
+body.menu-visible .pwa-card:nth-child(3){ transition-delay:.15s; }
+body.menu-visible .pwa-card:nth-child(4){ transition-delay:.20s; }
+body.menu-visible .pwa-card:nth-child(5){ transition-delay:.25s; }
+
+.pwa-card:active{
+    transform:scale(.95);
+    background: rgba(255, 255, 255, 0.15);
+}
