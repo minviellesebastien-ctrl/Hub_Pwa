@@ -1,0 +1,222 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Poppins", sans-serif;
+    background:#0A0D0F;
+    color:#fff;
+}
+
+#app{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    z-index: 2;
+}
+
+/* Introduction vidéo */
+#intro{
+    position:absolute;
+    inset:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0A0D0F;
+    transition: opacity .5s ease, transform .6s ease;
+}
+
+#logo-container{
+    width:240px;
+    height:240px;
+}
+
+#intro-video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* Grille 2x2 plein écran */
+#menu{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px;
+    padding: 0px;
+    opacity: 0;
+    transform: scale(.92);
+    transition: opacity .3s ease, transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Style de base des cartes */
+.pwa-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border: 2px solid;
+    overflow: hidden;
+    cursor:pointer;
+
+    transform:scale(.8);
+    opacity:0;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        opacity .5s ease,
+        background .2s ease;
+}
+
+.pwa-card svg {
+    width: 52px;
+    height: 52px;
+}
+
+.pwa-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-top: 8px;
+}
+
+/* --- LES 4 FORMES À 6 COINS ARRONDIS (5 EXTÉRIEURS, 1 INTÉRIEUR) --- */
+
+/* 1. Haut-Gauche (Vinyls) */
+#vinyl { 
+    grid-column: 1; 
+    grid-row: 1; 
+    border-color: #E5A81A; 
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C0,14.3 14.3,0 32,0 L100,0 L100,58 C100,74.5 86.5,88 70,88 L58,88 C41.5,88 28,101.5 28,118 L28,100 C28,83.5 14.3,70 0,70 Z' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C0,14.3 14.3,0 32,0 L100,0 L100,58 C100,74.5 86.5,88 70,88 L58,88 C41.5,88 28,101.5 28,118 L28,100 C28,83.5 14.3,70 0,70 Z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+#vinyl svg { fill: #E5A81A; }
+
+/* 2. Haut-Droite (Agenda) */
+#evenements { 
+    grid-column: 2; 
+    grid-row: 1; 
+    border-color: #186BE8; 
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100,32 C100,14.3 85.7,0 68,0 L0,0 L0,58 C0,74.5 13.5,88 30,88 L42,88 C58.5,88 72,101.5 72,118 L72,100 C72,83.5 85.7,70 100,70 Z' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100,32 C100,14.3 85.7,0 68,0 L0,0 L0,58 C0,74.5 13.5,88 30,88 L42,88 C58.5,88 72,101.5 72,118 L72,100 C72,83.5 85.7,70 100,70 Z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+#evenements svg { fill: #186BE8; }
+
+/* 3. Bas-Gauche (Voyages) */
+#voyages { 
+    grid-column: 1; 
+    grid-row: 2; 
+    border-color: #009E96; 
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L28,0 C28,16.5 41.5,30 58,30 L70,30 C86.5,30 100,43.5 100,60 L100,100 L32,100 C14.3,100 0,85.7 0,68 Z' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L28,0 C28,16.5 41.5,30 58,30 L70,30 C86.5,30 100,43.5 100,60 L100,100 L32,100 C14.3,100 0,85.7 0,68 Z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+#voyages svg { fill: #009E96; }
+
+/* 4. Bas-Droite (Garage) */
+#voiture { 
+    grid-column: 2; 
+    grid-row: 2; 
+    border-color: #C0C8D0; 
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100,0 L72,0 C72,16.5 58.5,30 42,30 L30,30 C13.5,30 0,43.5 0,60 L0,100 L68,100 C85.7,100 100,85.7 100,68 Z' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100,0 L72,0 C72,16.5 58.5,30 42,30 L30,30 C13.5,30 0,43.5 0,60 L0,100 L68,100 C85.7,100 100,85.7 100,68 Z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+#voiture svg { fill: #C0C8D0; }
+
+
+/* --- 5ÈME FORME AU MILIEU (Avenir) --- */
+#avenir {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.8);
+    width: 130px;
+    height: 130px;
+    z-index: 5;
+    
+    background: #0A0D0F;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border: 2px solid #EB6925;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, background .2s ease;
+}
+
+#avenir svg { 
+    width: 48px;
+    height: 48px;
+    fill: #EB6925; 
+}
+
+
+/* Transitions du menu après vidéo */
+body.menu-visible #intro{
+    opacity:0;
+    transform:scale(1.08);
+    pointer-events:none;
+}
+
+body.menu-visible #menu{
+    opacity:1;
+    transform:scale(1);
+}
+
+body.menu-visible .pwa-card{
+    opacity:1;
+    transform:scale(1);
+}
+
+body.menu-visible #avenir {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Enchaînement des cartes en cascade */
+body.menu-visible .pwa-card:nth-child(1){ transition-delay:.05s; }
+body.menu-visible .pwa-card:nth-child(2){ transition-delay:.10s; }
+body.menu-visible .pwa-card:nth-child(3){ transition-delay:.15s; }
+body.menu-visible .pwa-card:nth-child(4){ transition-delay:.20s; }
+body.menu-visible #avenir{ transition-delay:.25s; }
+
+.pwa-card:active{
+    transform:scale(.95);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#avenir:active {
+    transform: translate(-50%, -50%) scale(.95);
+    background: rgba(255, 255, 255, 0.1);
+                                         }
