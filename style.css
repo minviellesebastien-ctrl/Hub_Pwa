@@ -1,0 +1,34 @@
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:100%;height:100%;overflow:hidden;font-family:"Poppins",sans-serif;background:#0A0D0F;color:#fff;}
+#app{width:100%;height:100%;position:relative;overflow:hidden;z-index:2;}
+#intro{position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:#0A0D0F;transition:opacity .5s ease,transform .6s ease;}
+#logo-container{width:240px;height:240px;}
+#intro-video{width:100%;height:100%;object-fit:contain;}
+
+/* Disposition en 2x2 : les quatre pièces se rejoignent au centre. */
+#menu{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;padding:0;opacity:0;transform:scale(.92);transition:opacity .3s ease,transform .3s cubic-bezier(.2,.8,.2,1);}
+.pwa-card{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;background:transparent;border:0;cursor:pointer;transform:scale(.8);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease,background .2s ease;}
+.card-shape{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;transform-origin:50% 50%;}
+.card-shape path{fill:rgba(255,255,255,.05);stroke:currentColor;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;}
+.rotate-90{transform:rotate(90deg);}
+.rotate-180{transform:rotate(180deg);}
+.rotate-270{transform:rotate(270deg);}
+.card-icon{position:relative;z-index:2;width:52px;height:52px;}
+#vinyl{grid-column:1;grid-row:1;color:#E5A81A;}
+#evenements{grid-column:2;grid-row:1;color:#186BE8;}
+#voyages{grid-column:1;grid-row:2;color:#009E96;}
+#voiture{grid-column:2;grid-row:2;color:#C0C8D0;}
+#vinyl .card-icon{fill:#E5A81A;}#evenements .card-icon{fill:#186BE8;}#voyages .card-icon{fill:#009E96;}#voiture .card-icon{fill:#C0C8D0;}
+
+/* Carré central : posé par-dessus les quatre encoches. */
+#avenir{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);width:clamp(118px,25vw,165px);height:clamp(118px,25vw,165px);z-index:5;background:#0A0D0F;border:2px solid #EB6925;box-shadow:0 10px 30px rgba(0,0,0,.5);border-radius:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease,background .2s ease;}
+#avenir svg{width:48px;height:48px;fill:#EB6925;}
+body.menu-visible #intro{opacity:0;transform:scale(1.08);pointer-events:none;}
+body.menu-visible #menu{opacity:1;transform:scale(1);}
+body.menu-visible .pwa-card{opacity:1;transform:scale(1);}
+body.menu-visible #avenir{opacity:1;transform:translate(-50%,-50%) scale(1);}
+body.menu-visible .pwa-card:nth-child(1){transition-delay:.05s;}body.menu-visible .pwa-card:nth-child(2){transition-delay:.10s;}body.menu-visible .pwa-card:nth-child(3){transition-delay:.15s;}body.menu-visible .pwa-card:nth-child(4){transition-delay:.20s;}body.menu-visible #avenir{transition-delay:.25s;}
+.pwa-card:active{transform:scale(.97);}
+#avenir:active{transform:translate(-50%,-50%) scale(.95);background:#101417;}
+
+@media (max-width:480px){#avenir{width:118px;height:118px;border-radius:24px;}.card-icon{width:46px;height:46px;}}
