@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hub">
+
+        <!-- Carte Patrimoine -->
+        <div class="card card-patrimoine">
+            <h1>MON PATRIMOINE</h1>
+            <div class="patrimoine-content">
+                <div class="value-box">
+                    <span class="total-value">93,4 k</span>
+                    <span class="evolution">↗ +4,8 %</span>
+                </div>
+                <div class="graph">
+                    <div class="bar bar-1"></div>
+                    <div class="bar bar-2"></div>
+                    <div class="bar bar-3"></div>
+                    <div class="bar bar-4"></div>
+                    <div class="bar bar-5"></div>
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <polyline points="0,75 25,65 50,70 75,35 100,10" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte Sorties -->
+        <div class="card card-small">
+            <h2>MES SORTIES</h2>
+            <div class="small-content">
+                <div class="icon">
+                    <svg class="ticket-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path>
+                        <line x1="9" y1="6" x2="9" y2="18" stroke-dasharray="2 2"></line>
+                    </svg>
+                </div>
+                <div class="next-info">
+                    <span class="label">Prochain</span>
+                    <span class="date">04 septembre</span>
+                    <span class="countdown">dans 4 jours</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte Voyages -->
+        <div class="card card-small">
+            <h2>MES VOYAGES</h2>
+            <div class="small-content">
+                <div class="icon">
+                    <span class="plane-icon">✈</span>
+                </div>
+                <div class="next-info">
+                    <span class="label">Prochain</span>
+                    <span class="date">18 septembre</span>
+                    <span class="destination">Londres</span>
+                    <span class="countdown">dans 18 jours</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
