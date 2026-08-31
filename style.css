@@ -213,12 +213,16 @@ body {
 ================================================== */
 
 .card-small .icon {
-    width: 35%;
+    position: absolute;
+    left: 20px; /* Distance exacte par rapport au bord gauche */
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #26364f;
 }
+
 
 /* Ticket centré avec trait plus fin (stroke-width: 1.5px) */
 .ticket-icon {
@@ -231,7 +235,7 @@ body {
 
 /* Avion agrandi et centré */
 .plane-icon {
-    font-size: 58px;
+    font-size: 80px;
     line-height: 1;
     transform: rotate(-25deg);
     display: flex;
