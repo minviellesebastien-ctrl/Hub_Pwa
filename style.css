@@ -237,7 +237,7 @@ body {
 .plane-icon {
     font-size: 90px;
     line-height: 1;
-    transform: rotate(-25deg);
+    transform: rotate(-25deg) translateY(-8px);
     display: flex;
     align-items: center;
     justify-content: center;
