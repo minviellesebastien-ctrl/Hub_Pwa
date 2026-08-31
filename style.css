@@ -226,8 +226,8 @@ body {
 
 /* Ticket centré avec trait plus fin (stroke-width: 1.5px) */
 .ticket-icon {
-    width: 64px;
-    height: 64px;
+    width: 74px;
+    height: 74px;
     transform: rotate(-25deg);
     stroke: #26364f;
     stroke-width: 1.5px;
@@ -235,7 +235,7 @@ body {
 
 /* Avion agrandi et centré */
 .plane-icon {
-    font-size: 80px;
+    font-size: 90px;
     line-height: 1;
     transform: rotate(-25deg);
     display: flex;
@@ -248,11 +248,12 @@ body {
 ================================================== */
 
 .next-info {
-    width: 65%;
+    margin-left: 100px; /* Ajuste cette valeur selon la taille de ton icône */
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
+
 
 .label {
     font-size: 15px;
