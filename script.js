@@ -1,44 +1,68 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*
+    MON HUB
+    Données provisoires
 
-    const introVideo = document.getElementById("intro-video");
+    Plus tard :
+    - récupérer le patrimoine depuis la PWA patrimoine
+    - récupérer la prochaine sortie depuis la PWA sorties
+    - récupérer le prochain voyage depuis la PWA voyages
+*/
 
-    const showMenu = () => {
-        document.body.classList.add("menu-visible");
-    };
 
-    if (introVideo) {
-        introVideo.addEventListener("ended", showMenu);
-        // Sécurité : Ouvre le menu au bout de 5,5 sec si la vidéo ne se lance pas
-        setTimeout(showMenu, 5500);
-    } else {
-        showMenu();
+// =========================
+// DONNÉES DE DÉMONSTRATION
+// =========================
+
+const hubData = {
+
+    patrimoine: {
+        valeur: "93,4 k€",
+        evolution: "+4,8 %"
+    },
+
+    sortie: {
+        date: "04 septembre"
+    },
+
+    voyage: {
+        date: "18 septembre"
     }
 
-    /*
-     * Redirections PWA
-     */
-    const pwaRoutes = {
-        vinyl: "https://minviellesebastien-ctrl.github.io/Vinyl_Collection/",
-        evenements: "https://minviellesebastien-ctrl.github.io/Agenda/",
-        voyages: "https://minviellesebastien-ctrl.github.io/Mes_Voyages/",
-        avenir: "https://minviellesebastien-ctrl.github.io/Avenir/",
-        voiture: "https://minviellesebastien-ctrl.github.io/Voiture/"
-    };
+};
 
-    Object.keys(pwaRoutes).forEach((id) => {
-        const card = document.getElementById(id);
-        if (card) {
-            card.addEventListener("click", () => {
-                window.open(pwaRoutes[id], "_blank");
-            });
-        }
-    });
 
-});
+// =========================
+// CALCUL DU COMPTEUR
+// =========================
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js");
-    });
-          }
-                          
+function calculerJours(date) {
+
+    const maintenant = new Date();
+
+    const difference = date - maintenant;
+
+    const jours = Math.ceil(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    return Math.max(0, jours);
+}
+
+
+// =========================
+// INITIALISATION
+// =========================
+
+function initialiserHub() {
+
+    document.querySelector(".total-value").textContent =
+        hubData.patrimoine.valeur;
+
+    document.querySelector(".evolution").textContent =
+        "↗ " + hubData.patrimoine.evolution;
+
+    console.log("Hub initialisé");
+}
+
+
+initialiserHub();
