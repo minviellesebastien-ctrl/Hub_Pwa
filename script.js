@@ -10,7 +10,7 @@
 const hubData = {
 
     patrimoine: {
-        valeur: "93,4 k€",
+        valeur: "93,4 k",
         evolution: "+4,8 %"
     },
 
