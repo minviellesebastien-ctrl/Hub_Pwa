@@ -214,7 +214,7 @@ body {
 
 .card-small .icon {
     position: absolute;
-    left: 20px; /* Distance exacte par rapport au bord gauche */
+    left: 10px; /* Distance exacte par rapport au bord gauche */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -248,7 +248,7 @@ body {
 ================================================== */
 
 .next-info {
-    margin-left: 100px; /* Ajuste cette valeur selon la taille de ton icône */
+    margin-left: 125px; /* Ajuste cette valeur selon la taille de ton icône */
     display: flex;
     flex-direction: column;
     gap: 2px;
