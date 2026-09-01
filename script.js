@@ -1,3 +1,5 @@
+console.log("HUB NOUVEAU SCRIPT");
+
 /*
     MON HUB
 
