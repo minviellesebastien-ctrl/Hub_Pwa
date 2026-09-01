@@ -1,5 +1,3 @@
-console.log("HUB NOUVEAU SCRIPT");
-
 /*
     MON HUB
 
@@ -18,7 +16,6 @@ const URL_HUB_DATA =
 
 async function chargerHubData() {
 
-    document.querySelector(".destination").textContent = "TEST HUB";
     try {
 
         const reponse = await fetch(
