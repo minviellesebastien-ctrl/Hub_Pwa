@@ -5,11 +5,12 @@
   },
 
   "sortie": {
-    "date": "04 septembre"
+    "date": "2026-09-04",
+    "evenement": "Indochine"
   },
 
   "voyage": {
-    "date": "25 décembre",
-    "destination": "New York"
+    "date": "2026-09",
+    "destination": "Londres"
   }
 }
