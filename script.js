@@ -329,42 +329,39 @@ function convertirDateVoyage(texte) {
 
     if (!texte) return "";
 
-
     const chiffres =
         texte.replace(/\D/g, "");
 
-
-    if (chiffres.length !== 6) {
+    if (chiffres.length !== 4) {
         return "";
     }
-
 
     const mois =
         Number(
             chiffres.substring(0, 2)
         );
 
-    const annee =
+    let annee =
         Number(
-            chiffres.substring(2, 6)
+            chiffres.substring(2, 4)
         );
 
+    /* 26 → 2026 */
+
+    annee += 2000;
 
     if (
         mois < 1 ||
         mois > 12
     ) {
-
         return "";
     }
-
 
     return (
         annee +
         "-" +
         String(mois).padStart(2, "0")
     );
-
 }
 
 
