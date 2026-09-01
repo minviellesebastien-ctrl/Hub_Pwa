@@ -1,22 +1,15 @@
 {
-  "applications": [
-    {
-      "name": "Mes Voyages",
-      "url": "URL_DE_TA_PWA",
-      "icon": "voyages.png",
-      "active": true
-    },
-    {
-      "name": "Mes Évènements",
-      "url": "URL_DE_TA_PWA",
-      "icon": "evenements.png",
-      "active": true
-    },
-    {
-      "name": "Vinyl Collection",
-      "url": "URL_DE_TA_PWA",
-      "icon": "vinyl.png",
-      "active": true
-    }
-  ]
+  "patrimoine": {
+    "valeur": "93,4 k",
+    "evolution": "+4,8 %"
+  },
+
+  "sortie": {
+    "date": "04 septembre"
+  },
+
+  "voyage": {
+    "date": "18 septembre",
+    "destination": "Londres"
+  }
 }
