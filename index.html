@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="btnEdition" aria-label="Modifier le Hub">
+        ✎
+    </button>
+
+
+    <div class="hub">
+
+        <!-- =========================
+             PATRIMOINE
+        ========================= -->
+
+        <div class="card card-patrimoine">
+
+            <h1>MON PATRIMOINE</h1>
+
+            <div class="patrimoine-content">
+
+                <div class="value-box">
+
+                    <span class="total-value">
+                        93,4 k
+                    </span>
+
+                    <span class="evolution">
+                        0 %
+                    </span>
+
+                </div>
+
+
+                <div class="graph">
+
+                    <div class="bar bar-1"></div>
+                    <div class="bar bar-2"></div>
+                    <div class="bar bar-3"></div>
+                    <div class="bar bar-4"></div>
+                    <div class="bar bar-5"></div>
+
+                    <svg
+                        viewBox="0 0 300 150"
+                        preserveAspectRatio="none"
+                    >
+                        <polyline
+                            points="0,125 48,112 92,116 138,82 183,91 230,52 270,60 300,28"
+                            fill="none"
+                        />
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SORTIES
+        ========================= -->
+
+        <div class="card card-small">
+
+            <h2>MES SORTIES</h2>
+
+            <div class="small-content">
+
+                <div class="icon">
+
+                    <svg
+                        class="ticket-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path>
+
+                        <line
+                            x1="9"
+                            y1="6"
+                            x2="9"
+                            y2="18"
+                            stroke-dasharray="2 2"
+                        ></line>
+                    </svg>
+
+                </div>
+
+
+                <div class="next-info">
+
+                    <span class="label">
+                        Prochain
+                    </span>
+
+                    <span class="date"></span>
+
+                    <span class="destination"></span>
+
+                    <span class="countdown"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             VOYAGES
+        ========================= -->
+
+        <div class="card card-small">
+
+            <h2>MES VOYAGES</h2>
+
+            <div class="small-content">
+
+                <div class="icon">
+
+                    <span class="plane-icon">
+                        ✈
+                    </span>
+
+                </div>
+
+
+                <div class="next-info">
+
+                    <span class="label">
+                        Prochain
+                    </span>
+
+                    <span class="date"></span>
+
+                    <span class="destination"></span>
+
+                    <span class="countdown"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ÉDITION
+    ========================= -->
+
+    <div id="edition" class="edition">
+
+        <div class="edition-box">
+
+            <div class="edition-header">
+
+                <h2>MODIFIER LE HUB</h2>
+
+                <button
+                    id="btnFermer"
+                    aria-label="Fermer"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- PATRIMOINE -->
+
+            <div class="edition-section">
+
+                <h3>PATRIMOINE</h3>
+
+                <label for="inputPatrimoine">
+                    Total en €
+                </label>
+
+                <input
+                    id="inputPatrimoine"
+                    type="number"
+                    inputmode="decimal"
+                    min="0"
+                    step="0.01"
+                    placeholder="93400"
+                >
+
+            </div>
+
+
+            <!-- SORTIE -->
+
+            <div class="edition-section">
+
+                <h3>SORTIE</h3>
+
+                <label for="inputSortieDate">
+                    Date — JJMMAA
+                </label>
+
+                <input
+                    id="inputSortieDate"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="040926"
+                    autocomplete="off"
+                >
+
+
+                <label for="inputSortieEvenement">
+                    Événement
+                </label>
+
+                <input
+                    id="inputSortieEvenement"
+                    type="text"
+                    placeholder="Ex. Indochine"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- VOYAGE -->
+
+            <div class="edition-section">
+
+                <h3>VOYAGE</h3>
+
+                <label for="inputVoyageDate">
+                    Mois + année — MMAAAA
+                </label>
+
+                <input
+                    id="inputVoyageDate"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="092026"
+                    autocomplete="off"
+                >
+
+
+                <label for="inputVoyageDestination">
+                    Destination
+                </label>
+
+                <input
+                    id="inputVoyageDestination"
+                    type="text"
+                    placeholder="Ex. Londres"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                id="btnEnregistrer"
+                class="btn-enregistrer"
+            >
+                ENREGISTRER
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
