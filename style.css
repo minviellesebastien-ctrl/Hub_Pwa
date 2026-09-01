@@ -517,8 +517,8 @@ body {
 
 #btnEdition {
     position: absolute;
-    top: 18px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     z-index: 10;
 
     padding: 0;
