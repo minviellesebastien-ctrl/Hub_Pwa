@@ -10,10 +10,34 @@ permissions:
   contents: write
 
 jobs:
-  test:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test
+
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Mettre à jour hub-data.json
+        if: github.event_name == 'repository_dispatch'
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
         run: |
-          echo "✅ GitHub Actions fonctionne"
+          echo "$PAYLOAD" > hub-data.json
+
+      - name: Enregistrer la modification
+        if: github.event_name == 'repository_dispatch'
+        run: |
+          git config user.name "Hub Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add hub-data.json
+
+          git diff --cached --quiet || git commit -m "Mise à jour automatique du Hub"
+
+          git push
+
+      - name: Test manuel
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "✅ Workflow Hub opérationnel"
